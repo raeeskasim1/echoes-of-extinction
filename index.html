@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>my web page</title>
+        <link rel="stylesheet" href="design.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="logo box">
+                <img src="logo.png" alt="Echoes of Extinction logo">
+            </div>
+
+            <h1 class="site-title box">Echoes of Extinction</h1>
+            
+            <button class="menu-btn">☰</button>
+
+            <nav class="nav-links box">
+                <a href="#home">Home</a>
+                <a href="#extinct">Extinct Animals</a>
+                <a href="#endangered">Endangered</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Discover the Lost Stories of Earth</h2>
+                    <p>
+                        Extinction is the permanent disappearance of a species from Earth.
+                        Some animals vanished because of climate change, hunting, habitat loss,
+                        or human activity.
+                    </p>
+                    <a href="extinct.html" class="hero-btn">Explore Lost Animals</a>
+                </div>
+
+                <div class="hero-img">
+                    <img src="exti.png" alt="Extinct animals illustration">
+                </div>
+            </section>
+
+            <section class="info">
+                <div class="info-text">
+                    <h2>What is Extinction?</h2>
+                    <p>
+                        Extinction happens when the last living member of a species dies.
+                        Once a species disappears forever, it cannot naturally return.
+                        Some extinctions happen slowly over thousands of years, while others
+                        happen quickly because of human actions.
+                    </p>
+                </div>
+
+                <div class="info-gallery">
+                     <img src="fossil_footprint_wide.png" alt="Fossil footprint">
+                     <img src="silent_forest_wide.png" alt="Silent forest">
+                     <img src="human_impact_wide.png" alt="Human impact">
+                </div>
+            </section>
+
+            <section class="cause">
+                <h2>Why Do Species Become Extinct?</h2>
+
+                <div class="cause-container">
+                    <div class="cause-card">
+                       <h3>Habitat Loss</h3>
+                        <p class="details">When forests and natural homes are destroyed, animals lose the space they need to live.</p>
+                        <img class="cause-img" src="habitat.png" alt="habitat loss">
+                    </div>
+
+                    <div class="cause-card">
+                        <h3>Hunting</h3>
+                        <p class="details">Some species disappeared because humans hunted them too much.</p>
+                        <img class="cause-img" src="hunt.png" alt="hunting">
+                    </div>
+
+                    <div class="cause-card">
+                        <h3>Climate Change</h3>
+                        <p class="details">Changing weather and temperatures can make habitats unsafe for many species.</p>
+                        <img class="cause-img" src="climate.png" alt="climate change">
+                    </div>
+
+                    <div class="cause-card">
+                        <h3>Pollution</h3>
+                        <p class="details">Pollution damages land, water, and air, making survival harder for wildlife.</p>
+                        <img class="cause-img" src="pollution.png" alt="pollution">
+                    </div>  
+                </div>
+            </section>
+
+            <section class="explore">
+                <!-- <img class="side-animal saber-img" src="saber.png" alt="saber toothed tiger"> -->
+                <!-- <img class="side-animal tiger-img" src="tig.png" alt="tiger"> -->
+                <h1>Explore More</h1>
+                <div class="explore-container">
+                    <div class="explore-card">
+
+                        <img class="side-animal saber-img" src="saber.png" alt="saber toothed tiger">
+                        <div class="card tig">
+                        <h3>Extinct Animals</h3>
+                        <p>Discover animals that once lived on Earth but dissapeared foorever.</p>
+                        <a href="extinct.html" class="explore-btn">View Extinct Animals</a>
+                        </div>
+                    </div>
+
+                    <div class="explore-card">
+                        <div class="card sib">
+                        <h3>Endangered Animals</h3>
+                        <p>Learn about species that are still alive but at risk of extinction.</p>
+                        <a href="endangered.html" class="explore-btn">View Endangered Animals</a>
+                        </div>
+                        <img class="side-animal tiger-img" src="tig.png" alt="tiger">
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    <script>
+        const causecard=document.querySelectorAll(".cause-card");
+
+        causecard.forEach(function(card){
+            card.addEventListener("click",function(){
+                card.classList.toggle("active")
+            })
+        })
+
+        // const isMobile=window.matchMedia("(hover:none),(pointer:coarse)").matches;
+
+        // if (isMobile){
+        //     const causecard=document.querySelectorAll(".cause-card");
+
+        //     causeCards.forEach(function(card) {
+        //         card.addEventListener("click", function() {
+        //             card.classList.toggle("active");
+        //         });
+        //     });            
+        // }
+    </script>
+    </body>
+</html>
