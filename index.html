@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#243d2e" />
+    <meta
+      name="description"
+      content="A natural history archive of extraordinary species. Explore extinct animals, discover wildlife at risk, and understand the stories behind extinction."
+    />
+    <title>Echoes of Extinction — A natural history archive</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="design.css" />
+    <link rel="preload" href="exti.png" as="image" />
+    <script src="species-data.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="reading-progress" aria-hidden="true">
+      <span id="reading-progress"></span>
+    </div>
+    <div class="announcement">
+      <span aria-hidden="true">✳</span> Look back with wonder. Look forward with
+      care.
+    </div>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#home" aria-label="Echoes of Extinction, home">
+          <svg
+            class="brand-mark"
+            viewBox="0 0 44 44"
+            fill="none"
+            aria-hidden="true"
+          >
+            <circle cx="22" cy="22" r="20" stroke="currentColor" />
+            <path
+              d="M13 30c0-10 7-16 18-16-1 10-7 17-18 16Z"
+              stroke="currentColor"
+            />
+            <path d="m13 30 13-12M20 24v-6M20 24h6" stroke="currentColor" />
+            <circle cx="13" cy="12" r="2" fill="currentColor" />
+          </svg>
+          <span>Echoes of<br /><strong>Extinction</strong></span>
+        </a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href="#archive">The archive</a><a href="#timeline">Through time</a
+          ><a href="#causes">The bigger picture</a>
+        </nav>
+        <div class="header-actions">
+          <button
+            class="saved-header"
+            id="show-saved"
+            aria-label="View saved species"
+          >
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M6 4h12v17l-6-4-6 4V4Z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"
+              /></svg
+            ><span class="saved-label">Field notes</span
+            ><span class="saved-count" id="saved-count">0</span>
+          </button>
+          <button
+            class="menu-toggle icon-button"
+            id="menu-toggle"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+            aria-label="Open navigation menu"
+          >
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M4 7h16M4 12h16M4 17h16"
+                stroke="currentColor"
+                stroke-width="1.6"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <nav
+        id="mobile-nav"
+        class="mobile-nav"
+        aria-label="Mobile navigation"
+        hidden
+      >
+        <a href="#archive">The archive <span aria-hidden="true">↗</span></a
+        ><a href="#timeline">Through time <span aria-hidden="true">↗</span></a
+        ><a href="#causes"
+          >The bigger picture <span aria-hidden="true">↗</span></a
+        ><a href="#conservation"
+          >A future worth protecting <span aria-hidden="true">↗</span></a
+        >
+      </nav>
+    </header>
+    <main id="main">
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <img
+          class="hero-art"
+          src="exti.png"
+          alt="An illustrated prehistoric landscape with a woolly mammoth beside a river at sunset"
+          width="1672"
+          height="941"
+          fetchpriority="high"
+        />
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-inner container">
+          <div class="hero-copy">
+            <p class="eyebrow light">
+              <span class="line" aria-hidden="true"></span> A natural history
+              archive
+            </p>
+            <h1 id="hero-title">Every species<br />leaves an <em>echo.</em></h1>
+            <p class="hero-description">
+              Meet the extraordinary animals we lost.<br />Understand the ones
+              we can still protect.
+            </p>
+            <a class="button button-cream" href="#archive"
+              >Enter the archive <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <button class="hero-story" data-species="mammoth">
+            <span class="eyebrow">From the collection · 001</span
+            ><span class="hero-story-title">The last of the giants.</span
+            ><span class="hero-story-bottom"
+              >Meet the woolly mammoth
+              <span class="circle-arrow" aria-hidden="true">↗</span></span
+            >
+          </button>
+          <div class="hero-caption">
+            <span>01 / A world before us</span
+            ><span>Illustrated reconstruction · not a photograph</span>
+          </div>
+        </div>
+      </section>
+      <section class="intro-strip container" aria-label="About the archive">
+        <p>A little curiosity.<br /><em>A deeper connection.</em></p>
+        <div>
+          <span class="intro-number" id="intro-total">20</span
+          ><span>Animal stories<br />in this collection</span>
+        </div>
+        <div>
+          <span class="intro-number" id="intro-extinct">10</span
+          ><span>Lost to time.<br />Never forgotten.</span>
+        </div>
+        <a href="#conservation"
+          ><span class="intro-number" id="intro-living">10</span
+          ><span
+            >Still here.<br />Still worth protecting.
+            <span aria-hidden="true">↗</span></span
+          ></a
+        >
+      </section>
+      <section
+        class="archive section-space container"
+        id="archive"
+        aria-labelledby="archive-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">01 / The collection</p>
+            <h2 id="archive-title">
+              Extraordinary lives.<br /><em>Unforgettable stories.</em>
+            </h2>
+          </div>
+          <p class="heading-note">
+            From the Ice Age to the forests of today,<br />every story offers a
+            different way<br />to see our living world.
+          </p>
+        </div>
+        <div class="archive-toolbar">
+          <div
+            class="filter-group"
+            aria-label="Filter species by conservation status"
+          >
+            <button class="filter active" data-filter="all" aria-pressed="true">
+              All species <span id="all-filter-count">20</span></button
+            ><button class="filter" data-filter="extinct" aria-pressed="false">
+              Extinct <span id="extinct-filter-count">10</span></button
+            ><button
+              class="filter"
+              data-filter="endangered"
+              aria-pressed="false"
+            >
+              Endangered <span id="endangered-filter-count">10</span></button
+            ><button class="filter" data-filter="saved" aria-pressed="false">
+              Saved <span id="saved-filter-count">0</span>
+            </button>
+          </div>
+          <div class="search-field">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle
+                cx="10.5"
+                cy="10.5"
+                r="6.5"
+                stroke="currentColor"
+                stroke-width="1.6"
+              />
+              <path
+                d="m16 16 4 4"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              /></svg
+            ><label class="sr-only" for="species-search"
+              >Search species, place, or scientific name</label
+            ><input
+              type="search"
+              id="species-search"
+              placeholder="Find a species or place…"
+              autocomplete="off"
+            /><kbd aria-hidden="true">/</kbd>
+          </div>
+        </div>
+        <div class="archive-meta">
+          <p id="result-count" role="status" aria-live="polite">
+            20 stories to discover
+          </p>
+          <label class="sort-label" for="species-sort"
+            >Sort by
+            <select id="species-sort">
+              <option value="featured">Curator’s order</option>
+              <option value="name">Name A–Z</option>
+            </select></label
+          >
+        </div>
+        <div class="species-grid" id="species-grid"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <span class="empty-mark" aria-hidden="true">✳</span>
+          <h3 id="empty-title">No species found.</h3>
+          <p id="empty-description">
+            Try another name, place, or a different filter.
+          </p>
+          <button class="button button-green" id="reset-filters">
+            Explore all species <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+        <p class="archive-footnote">A curated collection, including selected subspecies. Dates are approximate where evidence is incomplete. Wildlife imagery is illustrative.</p>
+        <noscript><div class="no-script"><h3>Explore the collection</h3><p>Interactive search and story panels require JavaScript.</p></div></noscript>
+      </section>
+      <section
+        class="timeline-section section-space"
+        id="timeline"
+        aria-labelledby="timeline-title"
+      >
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow light">02 / Through time</p>
+              <h2 id="timeline-title">
+                The world changed.<br /><em>So did their stories.</em>
+              </h2>
+            </div>
+            <p class="heading-note">
+              Four moments. Thousands of years.<br />Select a chapter to travel
+              through time.
+            </p>
+          </div>
+          <div
+            class="timeline-tabs"
+            role="tablist"
+            aria-label="Select a moment in natural history"
+          >
+            <button
+              class="timeline-tab active"
+              id="time-smilodon"
+              role="tab"
+              aria-selected="true"
+              aria-controls="timeline-panel"
+              tabindex="0"
+              data-time="smilodon"
+            >
+              <span class="timeline-dot" aria-hidden="true"></span
+              ><strong>~11,000 years ago</strong><span>End of an Ice Age</span>
+            </button>
+            <button
+              class="timeline-tab"
+              id="time-mammoth"
+              role="tab"
+              aria-selected="false"
+              aria-controls="timeline-panel"
+              tabindex="-1"
+              data-time="mammoth"
+            >
+              <span class="timeline-dot" aria-hidden="true"></span
+              ><strong>~4,000 years ago</strong><span>The last mammoths</span>
+            </button>
+            <button
+              class="timeline-tab"
+              id="time-dodo"
+              role="tab"
+              aria-selected="false"
+              aria-controls="timeline-panel"
+              tabindex="-1"
+              data-time="dodo"
+            >
+              <span class="timeline-dot" aria-hidden="true"></span
+              ><strong>Late 1600s</strong><span>An island falls silent</span>
+            </button>
+            <button
+              class="timeline-tab"
+              id="time-tiger"
+              role="tab"
+              aria-selected="false"
+              aria-controls="timeline-panel"
+              tabindex="-1"
+              data-time="tiger"
+            >
+              <span class="timeline-dot" aria-hidden="true"></span
+              ><strong>Today</strong><span>A story still unfolding</span>
+            </button>
+          </div>
+          <div
+            id="timeline-panel"
+            class="timeline-panel"
+            role="tabpanel"
+            aria-labelledby="time-smilodon"
+            tabindex="0"
+          ></div>
+          <p class="timeline-note">
+            Selected moments, not a time scale. Extinction dates are estimates,
+            not exact timestamps.
+          </p>
+        </div>
+      </section>
+      <section
+        class="causes-section section-space container"
+        id="causes"
+        aria-labelledby="causes-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">03 / The bigger picture</p>
+            <h2 id="causes-title">
+              An extinction is rarely<br /><em>a single story.</em>
+            </h2>
+          </div>
+          <p class="heading-note">
+            Pressures overlap. Understanding them<br />is the first step toward
+            changing them.
+          </p>
+        </div>
+        <div class="causes-layout">
+          <div
+            class="cause-list"
+            role="tablist"
+            aria-label="Explore drivers of biodiversity loss"
+            aria-orientation="vertical"
+          >
+            <button
+              class="cause-tab active"
+              id="cause-habitat"
+              role="tab"
+              aria-selected="true"
+              aria-controls="cause-panel"
+              tabindex="0"
+              data-cause="habitat"
+            >
+              <span>01</span> Habitat loss <span aria-hidden="true">↗</span>
+            </button>
+            <button
+              class="cause-tab"
+              id="cause-exploitation"
+              role="tab"
+              aria-selected="false"
+              aria-controls="cause-panel"
+              tabindex="-1"
+              data-cause="exploitation"
+            >
+              <span>02</span> Overexploitation <span aria-hidden="true">↗</span>
+            </button>
+            <button
+              class="cause-tab"
+              id="cause-climate"
+              role="tab"
+              aria-selected="false"
+              aria-controls="cause-panel"
+              tabindex="-1"
+              data-cause="climate"
+            >
+              <span>03</span> Climate change <span aria-hidden="true">↗</span>
+            </button>
+            <button
+              class="cause-tab"
+              id="cause-pollution"
+              role="tab"
+              aria-selected="false"
+              aria-controls="cause-panel"
+              tabindex="-1"
+              data-cause="pollution"
+            >
+              <span>04</span> Pollution <span aria-hidden="true">↗</span>
+            </button>
+            <button
+              class="cause-tab"
+              id="cause-invasive"
+              role="tab"
+              aria-selected="false"
+              aria-controls="cause-panel"
+              tabindex="-1"
+              data-cause="invasive"
+            >
+              <span>05</span> Invasive species <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+          <div
+            class="cause-panel"
+            id="cause-panel"
+            role="tabpanel"
+            aria-labelledby="cause-habitat"
+            tabindex="0"
+          ></div>
+        </div>
+        <p class="source-note">Five major human-driven pressures shape modern biodiversity loss.</p>
+      </section>
+      <section
+        class="conservation-section"
+        id="conservation"
+        aria-labelledby="conservation-title"
+      >
+        <div class="container conservation-layout">
+          <div class="conservation-art" aria-hidden="true">
+            <div class="conservation-orbit"></div>
+            <span class="orbit-label">A future worth protecting</span
+            ><img
+              class="wildlife-photo"
+              src="assets/animals/tiger.jpg"
+              alt=""
+              loading="lazy"
+              width="1280"
+              height="853"
+            />
+          </div>
+          <div class="conservation-copy">
+            <p class="eyebrow light">
+              <span class="status-dot" aria-hidden="true"></span> Endangered
+              doesn’t mean gone
+            </p>
+            <h2 id="conservation-title">
+              The next chapter<br />is <em>still unwritten.</em>
+            </h2>
+            <p>
+              We can’t change the stories that ended.<br />We can pay attention
+              to the ones still unfolding.
+            </p>
+            <button class="button button-cream" id="explore-endangered">
+              Meet a species at risk <span aria-hidden="true">↗</span></button
+            >
+          </div>
+        </div>
+      </section>
+      <section
+        class="challenge-section section-space container"
+        id="challenge"
+        aria-labelledby="challenge-title"
+      >
+        <div class="challenge-intro">
+          <p class="eyebrow">04 / A little fieldwork</p>
+          <h2 id="challenge-title">
+            Curiosity looks<br /><em>good on you.</em>
+          </h2>
+          <p>
+            Three questions from the collection.<br />See what stays with you.
+          </p>
+          <span class="challenge-stamp" aria-hidden="true"
+            >THE<br />FIELD TEST <span>✳</span></span
+          >
+        </div>
+        <div class="quiz-panel" id="quiz-panel" aria-live="polite"></div>
+      </section>
+      <footer class="site-footer">
+        <div class="container footer-top">
+          <a class="footer-brand" href="#home"
+            >Echoes of <em>Extinction.</em></a
+          >
+          <p>Remember what was.<br />Protect what is.</p>
+          <a href="#home" class="back-to-top"
+            >Back to the beginning <span aria-hidden="true">↑</span></a
+          >
+        </div>
+        <div class="container footer-bottom">
+          <p>
+            An independent learning project by
+            Raees Kasim.
+          </p>
+          <div>
+            <button class="text-button" id="show-sources">About this project</button
+            >
+          </div>
+        </div>
+      </footer>
+    </main>
+    <dialog
+      class="story-dialog"
+      id="story-dialog"
+      aria-labelledby="dialog-title"
+    >
+      <button
+        class="dialog-close icon-button"
+        id="dialog-close"
+        aria-label="Close story"
+      >
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="m6 6 12 12M18 6 6 18"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div id="dialog-content"></div>
+    </dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
